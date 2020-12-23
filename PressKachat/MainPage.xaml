@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="PressKachat.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PressKachat"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="using:Windows.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+
+    <Grid>
+        
+
+
+
+        <muxc:NavigationView x:Name="nvSample5" 
+                                            
+                                            SelectionChanged="nvSample_SelectionChanged" VerticalAlignment="Stretch" 
+                                            >
+            
+            <muxc:NavigationView.MenuItems>
+                <muxc:NavigationViewItem Content="Добавить программу тренеровок" Tag="AddProgram" Icon="Paste" />
+                <muxc:NavigationViewItem Content="Мои программы тренеровок" Tag="MyPrograms" Icon="List" />
+                <muxc:NavigationViewItem Content="О программе" Tag="About" Icon="Help" />
+                    
+            </muxc:NavigationView.MenuItems>
+            <Frame   Margin="0,0,0,0" x:Name="contentFrame" />
+        </muxc:NavigationView>
+        
+    </Grid>
+</Page>

@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="PressKachat.AddTraining"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PressKachat"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local1="using:PressKachat.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+       
+
+        <TextBox VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,80,0,0" Text=""  PlaceholderText="Название тренировки"   Height="80" Width="400" TextChanged="Name_TextBox_TextChanged" Name="name"/>
+        <CalendarDatePicker  VerticalAlignment="Top"  Margin="50,240,0,0" PlaceholderText="Дата тренировки" Height="80" Width="400" Name="date" DateChanged="Date_DateChanged"/>
+
+        <Button Content="Назад" Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Back_Button_Click" />
+        <Button Content="Добавить упражнение" Margin="50,400,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="400" Click="AddExercise_Button_Click"/>
+        <Button Content="Сохранить" Margin="50,560,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="400" Click="Save_Button_Click" Grid.ColumnSpan="1" Grid.RowSpan="1" Visibility="Visible" RequestedTheme="Default" />
+
+        <TextBlock HorizontalAlignment="Right" Margin="20"  Text="Упражнения" TextWrapping="Wrap" VerticalAlignment="Top" Height="80" Width="250" FontSize="30" />
+
+        
+
+
+
+        <ListView   Grid.RowSpan="2" Width="300" Margin="0,80,0,80" HorizontalAlignment="Right" ItemClick="ListView_ItemClick" IsItemClickEnabled="True" Name="exercises">
+            <ListView.ItemTemplate>
+                <DataTemplate x:Name="TripleLineDataTemplate" x:DataType="local1:Exercise">
+                    <StackPanel Orientation="Horizontal" Height="100" Width="250" Padding="20" AutomationProperties.Name="{x:Bind Name}">
+                    <StackPanel  >
+                        <TextBlock Text="{x:Bind Name}"  Style="{ThemeResource BaseTextBlockStyle}" />
+                        
+                            
+                            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,4,0,0" Opacity=".8">
+                                <TextBlock Text="Подходов: " Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Text="{x:Bind Repeats}" Style="{ThemeResource CaptionTextBlockStyle}" Margin="4,0,0,0" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,4,0,0" Opacity=".5">
+                                <TextBlock Text="Перерыв: " Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Text="{x:Bind Time}" Style="{ThemeResource CaptionTextBlockStyle}" Margin="4,0,0,0" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <Button VerticalAlignment="Top" Margin="16" HorizontalAlignment="Right" Click="Delete_Item_Button_Click"  AccessKey="{x:Bind Name}" Content="удалить"/>
+
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+
+    </Grid>
+</Page>

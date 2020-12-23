@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="PressKachat.MyPrograms"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PressKachat"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:models="using:PressKachat.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ListView   Grid.RowSpan="2" Width="500" Margin="0,80,0,80" HorizontalAlignment="Left" ItemClick="ProgramsList_ItemClick" IsItemClickEnabled="True" Name="programs">
+            <ListView.ItemTemplate>
+                <DataTemplate x:Name="TripleLineDataTemplate" x:DataType="models:ProgramTrainings">
+                    <StackPanel Orientation="Horizontal" Height="100" Width="500" Padding="20" AutomationProperties.Name="{x:Bind Name}">
+                        <StackPanel  >
+                            <TextBlock Text="{x:Bind Name}"  Style="{ThemeResource BaseTextBlockStyle}" />
+
+
+                            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,4,0,0" Opacity=".5">
+                                <TextBlock Text="Количество упражнений: " Style="{ThemeResource CaptionTextBlockStyle}"/>
+                                <TextBlock Text="{x:Bind Trainings.Count}" Style="{ThemeResource CaptionTextBlockStyle}" Margin="4,0,0,0" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <Button VerticalAlignment="Top" Margin="16" Padding="4" Width="50" Height="50" HorizontalAlignment="Right" Click="Delete_Item_Button_Click"  AccessKey="{x:Bind Name}" Content="удалить"/>
+
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </Grid>
+</Page>

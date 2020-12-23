@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="PressKachat.AddExercise"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PressKachat"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button Content="Назад" Margin="18,28,0,0" VerticalAlignment="Top" Click="Back_Button_Click" />
+        <TextBox HorizontalAlignment="Center" PlaceholderText="Название" Margin="0,190,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="65" Width="420" TextChanged="Name_TextBox_TextChanged" Name="name"/>
+        <TextBox HorizontalAlignment="Center" PlaceholderText="Количество подходов" Margin="0,343,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="420" TextChanged="Repeats_TextBox_TextChanged" Name="repeats"/>
+        <TimePicker Header="Время между подходами" Margin="0,510,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="70" Width="420" TimeChanged="TimePicker_TimeChanged" Time="00:03:30" ClockIdentifier="24HourClock" Name="time" />
+        <Button Content="Сохранить" Margin="815,635,0,0" VerticalAlignment="Top" Width="145" Click="Save_Button_Click"/>
+    </Grid>
+</Page>
